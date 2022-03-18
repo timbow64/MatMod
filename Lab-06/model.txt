@@ -1,0 +1,36 @@
+model Project
+  parameter  Real a=0.12;
+  parameter  Real b=0.02;
+  
+
+  Real S(start=12473);
+  Real I(start=170);
+  Real R(start=57);  
+
+  equation
+    der(S) = 0;
+    der(I) = -b*I;
+    der(R) = b*I;
+      
+  annotation(experiment(StartTime=0, StopTime=200, Tplerance=1e-06,Interval=0.05));
+
+end Project;
+
+
+model Project
+  parameter  Real a=0.12;
+  parameter  Real b=0.02;
+  
+
+  Real S(start=12473);
+  Real I(start=170);
+  Real R(start=57);  
+
+  equation
+    der(S) = -a*S;
+    der(I) = a*S-b*I;
+    der(R) = b*I;
+      
+  annotation(experiment(StartTime=0, StopTime=200, Tplerance=1e-06,Interval=0.05));
+
+end Project;
